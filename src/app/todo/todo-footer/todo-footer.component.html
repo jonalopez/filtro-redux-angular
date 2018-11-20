@@ -1,0 +1,15 @@
+<!-- This footer should hidden by default and shown when there are todos -->
+<footer class="footer">
+    <!-- This should be `0 items left` by default -->
+    <span class="todo-count"><strong>{{ pendientes }}</strong> item left</span>
+    <!-- Remove this if you don't implement routing -->
+    <ul class="filters">
+        <!--Se define el ngClass selected con la validacion de que el filtro sea igual al filtro actual -->
+        <li (click)="listaFiltro( filtro )" *ngFor="let filtro of filtrosValidos">
+            <a [ngClass]="{ 'selected': filtro === filtroActual }" class="selected" href="#/">{{ filtro }}</a>
+        </li>
+
+    </ul>
+    <!-- Hidden if no completed items are left ↓ -->
+    <button (click)="limpiarCompletados()" class="clear-completed">Clear completed</button>
+</footer>
